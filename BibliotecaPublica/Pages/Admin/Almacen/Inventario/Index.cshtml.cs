@@ -10,6 +10,7 @@ using BibliotecaPublica.Data.Modelos.Almacen;
 
 namespace BibliotecaPublica.Pages.Admin.Almacen.Inventario
 {
+
     public class IndexModel : PageModel
     {
         private readonly BibliotecaPublica.Data.ApplicationDbContext _context;
@@ -26,5 +27,7 @@ namespace BibliotecaPublica.Pages.Admin.Almacen.Inventario
             InventarioModel = await _context.Inventarios
                 .Include(i => i.Libro).ToListAsync();
         }
+
+        
     }
 }

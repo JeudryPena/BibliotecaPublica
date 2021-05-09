@@ -5,11 +5,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Inventarios</h1>
 
-<p>
-    <a asp-page="Create">Crear nuevo Inventario</a>
+<p >
+    <a id='visor_imagenes' asp-page="Create">Crear nuevo Inventario</a>
 </p>
+
+<style type="text/css">
+    a {
+        background-color: #f6897a;
+        color: #000000;
+        font-family: Verdana;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    th {
+        color: #283cd4;
+        font-weight: bolder;
+        font-size: 25px;
+    }
+
+    td {
+        color: #000000;
+        font-size: 18px;
+    }
+
+    .table {
+        background-color: #f2f2f2;
+    }
+
+</style>
+
 <table class="table">
     <thead>
         <tr>
