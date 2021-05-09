@@ -1,0 +1,50 @@
+﻿@page
+@model BibliotecaPublica.Pages.Admin.Almacen.Inventario.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>InventarioModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventarioModel.Libro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.Libro.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventarioModel.Archivo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.Archivo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventarioModel.EstaDisponible)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.EstaDisponible)
+        </dd>
+        <dt class="col-sm-2">
+            Creado por:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.Usuario.UserName)
+        </dd>
+
+        <dt class="col-sm-2">
+            Creado el:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.Creado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.InventarioModel.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

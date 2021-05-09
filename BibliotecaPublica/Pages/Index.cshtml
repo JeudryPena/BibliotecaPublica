@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Grupo #1</p>
+</div>
+
+Usuarios Registrados
+<ol>
+    @foreach (var item in UserManager.Users)
+    {
+        <li>@item.UserName</li>
+    }
+</ol>
+
+<ul>
+    <li>
+        <a asp-page="admin/autores/index">Autores</a>
+    </li>
+    <li>
+        <a asp-page="admin/categorias/index">Categorias</a>
+    </li>
+    <li>
+        <a asp-page="admin/libros/index">Libros</a> | <a asp-page="admin/libros/busqueda">Busqueda</a> @if (SignInManager.IsSignedIn(User))
+        {<span>|</span> <a asp-page="admin/libros/Create" class="btn btn-sm btn-success">Nuevo</a>}
+    </li>
+    <li>
+        <a asp-page="admin/almacen/inventario/index">Inventarios</a>
+    </li>
+</ul>
+
+
+<div class="container">
+    <div class="row">
+
+  
+
+            <div class="col-lg-4">
+
+                <div class="card">
+                    <img class="card-img-top" src=""  alt="card image">
+                    <div class="card-header">
+                        Titulo del Libro
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo</h5>
+                        <p class="card-text"> Lorem descripcion</p>
+                    </div>
+                </div>
+
+
+            </div>}
+    </div>
+</div> 

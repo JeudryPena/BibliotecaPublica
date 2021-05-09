@@ -1,0 +1,52 @@
+﻿@page
+@model BibliotecaPublica.Pages.Admin.Libros.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>LibroModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LibroModel.Titulo" class="control-label"></label>
+                <input asp-for="LibroModel.Titulo" class="form-control" />
+                <span asp-validation-for="LibroModel.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LibroModel.Descripcion" class="control-label"></label>
+                <input asp-for="LibroModel.Descripcion" class="form-control" />
+                <span asp-validation-for="LibroModel.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LibroModel.Publicacion" class="control-label"></label>
+                <input asp-for="LibroModel.Publicacion" class="form-control" />
+                <span asp-validation-for="LibroModel.Publicacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Categoria</label>
+                <select asp-for="LibroModel.CategoriaId" class ="form-control" asp-items="ViewBag.CategoriaId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Autor</label>
+                <select asp-for="LibroModel.AutorId" class ="form-control" asp-items="ViewBag.AutorId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,40 @@
+﻿@page
+@model BibliotecaPublica.Pages.Admin.Almacen.Inventario.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>InventarioModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventarioModel.Libro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.Libro.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventarioModel.Archivo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.Archivo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventarioModel.EstaDisponible)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventarioModel.EstaDisponible)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="InventarioModel.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

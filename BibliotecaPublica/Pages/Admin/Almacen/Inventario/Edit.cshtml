@@ -1,0 +1,47 @@
+﻿@page
+@model BibliotecaPublica.Pages.Admin.Almacen.Inventario.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>InventarioModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="InventarioModel.Id" />
+            <input type="hidden" asp-for="InventarioModel.UsuarioId" />
+
+            <div class="form-group">
+                <label asp-for="InventarioModel.LibroId" class="control-label"></label>
+                <select asp-for="InventarioModel.LibroId" class="form-control" asp-items="ViewBag.LibroId"></select>
+                <span asp-validation-for="InventarioModel.LibroId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InventarioModel.Archivo" class="control-label"></label>
+                <input asp-for="InventarioModel.Archivo" class="form-control" />
+                <span asp-validation-for="InventarioModel.Archivo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="InventarioModel.EstaDisponible" /> @Html.DisplayNameFor(model => model.InventarioModel.EstaDisponible)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
