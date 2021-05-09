@@ -1,6 +1,8 @@
 ﻿@page
 @model BibliotecaPublica.Pages.Admin.Libros.IndexModel
 
+
+
 @{ ViewData["Title"] = "Home page"; }
 
 <div class="text-center">
@@ -10,24 +12,49 @@
 
 
 
-<div class="container"> 
+<ul>
+    <li>
+        <a asp-page="admin/autores/index">Autores</a>
+    </li>
+    <li>
+        <a asp-page="admin/categorias/index">Categorias</a>
+    </li>
+    <li>
+        <a asp-page="admin/libros/index">Libros</a> | <a asp-page="admin/libros/busqueda">Busqueda</a> <span>|</span> <a asp-page="admin/libros/Create" class="btn btn-sm btn-success">Nuevo</a>
+    </li>
+    <li>
+        <a asp-page="admin/almacen/inventario/index">Inventarios</a>
+    </li>
+</ul>
 
+
+<div class="container">
     <div class="row">
-        @foreach(var item in Model.LibroModel) {
+
+        @foreach(var item in Model.LibroModel) { 
+
         <div class="col-lg-4">
 
             <div class="card">
                 <img class="card-img-top" src="~/img/immm.svg" alt="card image">
                 <div class="card-header">
-                    Titulo del Libro
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Codigo)
+                    </p>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">@item model.libroModel.Titulo</h5>
-                    <p class="card-text"> Lorem descripcion</p>
+                    <h5 class="card-title">
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </p>
+                    </h5>
+                    <p class="card-text">
+                        @Html.DisplayFor(modelItem => item.Autor.Nombre)
+                    </p>
                 </div>
             </div>
-        </div>
-        }</div> 
+
+
+        </div>}
+    </div>
 </div>
-
-
