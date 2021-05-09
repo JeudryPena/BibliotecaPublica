@@ -21,7 +21,12 @@
 
   <ItemGroup>
     <Folder Include="Data\Modelos\Clientes\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="Pages\Public\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\biblioteca.jpg" />
   </ItemGroup>
 
 </Project>

@@ -2,14 +2,19 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    background-color: #C19930;
+    text-align: center;
+    word-break: break-all;
+    border-color: #58BD3E;
+    line-height: 1.15;
+    border-bottom: 3px solid #e5e5e5;
+    border-right: 3px solid #e5e5e5;
 }
 
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
+
 }
 
 .btn-primary {
@@ -54,13 +59,17 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background-color: #dce49d;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-image: url(./biblioteca1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 .footer {
   position: absolute;
