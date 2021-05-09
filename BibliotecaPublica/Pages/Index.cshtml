@@ -1,63 +1,81 @@
 ﻿@page
-@model IndexModel
+@model BibliotecaPublica.Pages.Admin.Libros.IndexModel
 
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
-@{
-    ViewData["Title"] = "Home page";
-}
+@{ ViewData["Title"] = "Home page"; }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Grupo #1</p>
 </div>
 
-Usuarios Registrados
-<ol>
-    @foreach (var item in UserManager.Users)
-    {
-        <li>@item.UserName</li>
-    }
-</ol>
-
-<ul>
-    <li>
-        <a asp-page="admin/autores/index">Autores</a>
-    </li>
-    <li>
-        <a asp-page="admin/categorias/index">Categorias</a>
-    </li>
-    <li>
-        <a asp-page="admin/libros/index">Libros</a> | <a asp-page="admin/libros/busqueda">Busqueda</a> @if (SignInManager.IsSignedIn(User))
-        {<span>|</span> <a asp-page="admin/libros/Create" class="btn btn-sm btn-success">Nuevo</a>}
-    </li>
-    <li>
-        <a asp-page="admin/almacen/inventario/index">Inventarios</a>
-    </li>
-</ul>
 
 
-<div class="container">
+<div class="container"> 
+
     <div class="row">
+        @foreach(var item in Model.LibroModel) {
+        <div class="col-lg-4">
 
-  
-
-            <div class="col-lg-4">
-
-                <div class="card">
-                    <img class="card-img-top" src="~/img/immm.svg"  alt="card image">
-                    <div class="card-header">
-                        Titulo del Libro
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo</h5>
-                        <p class="card-text"> Lorem descripcion</p>
-                    </div>
+            <div class="card">
+                <img class="card-img-top" src="~/img/immm.svg" alt="card image">
+                <div class="card-header">
+                    Titulo del Libro
                 </div>
-
-
+                <div class="card-body">
+                    <h5 class="card-title">@item model.libroModel.Titulo)</h5>
+                    <p class="card-text"> Lorem descripcion</p>
+                </div>
             </div>
-    </div>
-</div> 
+        </div>
+        }</div> 
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LibroModel[0].Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibroModel[0].Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibroModel[0].Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibroModel[0].Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibroModel[0].Publicacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LibroModel)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Codigo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Categoria.Titulo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Autor.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Titulo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Publicacion)
+    </td>
+    <td>
+        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+    </td>
+</tr>}
+    </tbody>
+</table>
